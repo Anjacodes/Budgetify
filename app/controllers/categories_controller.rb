@@ -4,6 +4,9 @@ class CategoriesController < ApplicationController
   # GET /categories or /categories.json
   def index
     @categories = Category.all
+    @categories.each do |category|
+      @expenses = category.expenses
+    end
   end
 
   # GET /categories/1 or /categories/1.json
@@ -22,9 +25,11 @@ class CategoriesController < ApplicationController
   # POST /categories or /categories.json
   def create
     @category = Category.new(category_params)
+    @expense_category = ExpenseCategory.create(category: @category)
 
     respond_to do |format|
       if @category.save
+        @category.expense_categories << @expense_category
         format.html { redirect_to category_url(@category), notice: "Category was successfully created." }
         format.json { render :show, status: :created, location: @category }
       else

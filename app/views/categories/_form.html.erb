@@ -21,9 +21,9 @@
     <%= form.text_field :icon %>
   </div>
 
-  <div>
+  <div class="invisible">
     <%= form.label :user_id, style: "display: block" %>
-    <%= form.text_field :user_id %>
+    <%= form.text_field :user_id, value: current_user.id %>
   </div>
 
   <div>

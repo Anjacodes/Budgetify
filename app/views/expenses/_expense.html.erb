@@ -14,4 +14,13 @@
     <%= expense.user_id %>
   </p>
 
+  <p>
+    <strong>Categories:</strong>
+    <ul>
+    <% expense.categories.each do |category| %>
+      <li><%=category.name%></li>
+    <% end %>
+    </ul>
+  </p>
+
 </div>

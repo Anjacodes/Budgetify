@@ -22,8 +22,16 @@
   </div>
 
   <div>
+  <%= form.label :categories, style: "display: block" %>
+  <% for category in Category.all %>
+    <%= check_box_tag "expense[category_ids][]", category.id, expense.categories.include?(category) %>
+    <%=h category.name %>
+  <% end %>
+  </div>
+
+  <div class="invisible">
     <%= form.label :user_id, style: "display: block" %>
-    <%= form.text_field :user_id %>
+    <%= form.text_field :user_id, value: current_user.id %>
   </div>
 
   <div>

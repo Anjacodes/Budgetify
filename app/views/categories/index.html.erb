@@ -6,6 +6,7 @@
     <% @categories.each do |category| %>
       <%= render category %>
       <p>
+        <p>Total: <%= @total %></p>
         <%= link_to "Show this category", category %>
       </p>
     <% end %>

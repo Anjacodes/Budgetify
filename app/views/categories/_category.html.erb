@@ -1,17 +1,21 @@
 <div id="<%= dom_id category %>">
   <p>
     <strong>Name:</strong>
-    <%= category.name %>
+    <%= link_to category.name, expenses_path(@expenses)%>
   </p>
 
   <p>
-    <strong>Icon:</strong>
-    <%= category.icon %>
+    <img class="w-1/6" src="<%= category.icon %>">
   </p>
 
   <p>
     <strong>User:</strong>
     <%= category.user_id %>
+  </p>
+
+  <p>
+    <strong>Total Expenses:</strong>
+    <%= category.expenses.reduce(0) {|sum, num| sum + num.amount} %>
   </p>
 
 </div>
