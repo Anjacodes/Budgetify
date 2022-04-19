@@ -1,7 +1,8 @@
+<%= link_to expenses_path(category.id) do %>
 <div id="<%= dom_id category %>">
   <p>
     <strong>Name:</strong>
-    <%= link_to category.name, expenses_path(@expenses)%>
+    <%= category.name %>
   </p>
 
   <p>
@@ -9,13 +10,10 @@
   </p>
 
   <p>
-    <strong>User:</strong>
-    <%= category.user_id %>
-  </p>
-
-  <p>
     <strong>Total Expenses:</strong>
-    <%= category.expenses.reduce(0) {|sum, num| sum + num.amount} %>
+    $<%= category.expenses.reduce(0) {|sum, num| sum + num.amount} %>
   </p>
 
 </div>
+<% end %>
+

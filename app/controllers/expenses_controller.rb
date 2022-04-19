@@ -3,7 +3,9 @@ class ExpensesController < ApplicationController
 
   # GET /expenses or /expenses.json
   def index
-    @expenses = Expense.all
+    @expenses = Expense.includes(:categories).where(categories: {id: params["format"]}).order(created_at: :desc)
+    @total = @expenses.reduce(0) {|sum, num| sum+num.amount}
+    @param = params["format"]
   end
 
   # GET /expenses/1 or /expenses/1.json
@@ -22,10 +24,12 @@ class ExpensesController < ApplicationController
   # POST /expenses or /expenses.json
   def create
     @expense = Expense.new(expense_params)
+    @id = @expense.category_ids
+    @category_id = Category.find(@id)
 
     respond_to do |format|
       if @expense.save
-        format.html { redirect_to expense_url(@expense), notice: "Expense was successfully created." }
+        format.html { redirect_to expenses_path(@category_id), notice: "Expense was successfully created." }
         format.json { render :show, status: :created, location: @expense }
       else
         format.html { render :new, status: :unprocessable_entity }
