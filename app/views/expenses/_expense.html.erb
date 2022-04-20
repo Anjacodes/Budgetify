@@ -1,0 +1,18 @@
+<%= link_to expense do %>
+<div id="<%= dom_id expense %>", class="w-full bg-white px-5 py-3 flex flex-col mb-5 hover:bg-[#3778c2] hover:text-white">
+<div class="flex justify-between text-lg">
+  <p>
+    <%= expense.name %>
+  </p>
+
+  <p>
+    $<%= expense.amount %>
+  </p>
+</div>
+    <p class="text-sm">
+      Category: <% expense.categories.each do |category| %>
+        <%=category.name%>
+      <% end %>
+    </p>
+</div>
+<% end %>

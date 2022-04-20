@@ -1,0 +1,24 @@
+<h1 class="text-3xl mt-[50vw] mb-5 text-white font-['Lobster']">Budgetify</h1>
+
+<%= form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: "w-full"}) do |f| %>
+  <div class="field">
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "w-full py-1 pl-1 rounded-sm mb-5", placeholder: 'Email' %>
+  </div>
+
+  <div class="field">
+    <%= f.password_field :password, autocomplete: "current-password", class: "w-full py-1 pl-1 rounded-sm mb-2", placeholder: 'Password' %>
+  </div>
+
+  <% if devise_mapping.rememberable? %>
+    <div class="field mb-5">
+      <%= f.check_box :remember_me %>
+      <%= f.label :remember_me, class:"text-white" %>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit "Log in", class:"bg-white w-full py-1 rounded-sm mb-5 hover:bg-[#5fb523]"  %>
+  </div>
+<% end %>
+
+<%= render "devise/shared/links"%>

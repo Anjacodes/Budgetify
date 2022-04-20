@@ -1,0 +1,30 @@
+<%= form_with(model: category, class:"w-full") do |form| %>
+  <% if category.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(category.errors.count, "error") %> prohibited this category from being saved:</h2>
+
+      <ul>
+        <% category.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.text_field :name, class: "w-full py-1 pl-1 rounded-sm mb-5", placeholder: 'Name' %>
+  </div>
+
+  <div>
+    <%= form.text_field :icon, class: "w-full py-1 pl-1 rounded-sm mb-5", placeholder: 'Icon' %>
+  </div>
+
+  <div class="invisible">
+    <%= form.label :user_id, style: "display: block" %>
+    <%= form.text_field :user_id, value: current_user.id %>
+  </div>
+
+  <div class="text-white text-center mt-10 bg-[#5fb523] w-full py-2 rounded-sm hover:bg-[#3778c2]" >
+    <%= form.submit%>
+  </div>
+<% end %>
