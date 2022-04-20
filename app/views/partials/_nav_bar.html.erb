@@ -1,6 +1,6 @@
 <header class="w-full h-[60px] px-[10%] m-auto flex justify-between items-center bg-[#3778c2] text-white <%= 'hidden' if current_page?(new_user_session_path) || current_page?(new_user_registration_path)%>">
 <% if current_page?(root_path) %>
-  <%= image_tag ("more.png"), class: "w-[10vw]" %>
+  <%= image_tag ("more.png"), class: "w-9" %>
 <% else %>
   <%= link_to root_path do%>
       <%= image_tag ("arrow.png"), class: "w-1/3" %>

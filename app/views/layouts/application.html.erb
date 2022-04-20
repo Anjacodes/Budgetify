@@ -19,14 +19,15 @@
 
   <%= render "partials/nav_bar" %>
 
-  <% if notice %>
-  <p class="alert alert-success text-white"><%= notice %></p>
-<% end %>
-<% if alert %>
-  <p class="alert alert-danger"><%= alert %></p>
-<% end %>
-<main class="px-[10%] flex flex-col items-center">
-    <%= yield %>
-</main>
+    <% if notice %>
+      <p class="notice text-white bg-[#5fb523] p-4 text-center w-full"><%= notice %></p>
+    <% end %>
+    <% if alert %>
+      <p class="alert text-white bg-red-400 p-4 text-center w-full"><%= alert %></p>
+    <% end %>
+
+  <main class="px-[10%] flex flex-col items-center">
+      <%= yield %>
+  </main>
   </body>
 </html>
