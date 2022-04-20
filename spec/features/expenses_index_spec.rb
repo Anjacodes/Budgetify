@@ -19,10 +19,10 @@ RSpec.describe 'The expenses index page', type: :feature do
       @path = "/expenses.#{@category1.id}"
     end
 
-    it 'displays a list of all transactions for a certain categories' do
+    it 'displays a list of all transactions for a certain category' do
       visit @path
-      expect(page).to have_content 'Test Category 1'
-      expect(page).to_not have_content 'Test Category 2'
+      expect(page).to have_content 'Test Expense'
+      expect(page).to have_content 'Test Expense 2'
     end
 
     it 'displays the total of all expenses for this category' do
