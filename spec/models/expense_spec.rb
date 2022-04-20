@@ -1,7 +1,7 @@
 require_relative '../rails_helper'
 
 RSpec.describe Expense, type: :model do
-  subject { Expense.new(name: 'Expense1', amount: 3.99, categories: 'gym') }
+  subject { Expense.new(name: 'Expense1', amount: 3.99) }
 
   before(:each) { subject.save }
 
@@ -12,11 +12,6 @@ RSpec.describe Expense, type: :model do
 
   it 'amount should be present' do
     subject.amount = nil
-    expect(subject).to_not be_valid
-  end
-
-  it 'category should be present' do
-    subject.categories = nil
     expect(subject).to_not be_valid
   end
 end

@@ -1,9 +1,9 @@
-<h1>New expense</h1>
+<h1 class="my-11 text-lg">NEW EXPENSE</h1>
 
 <%= render "form", expense: @expense %>
 
 <br>
 
 <div>
-  <%= link_to "Back to expenses", expenses_path(params["format"]) %>
+  <%= link_to "Back to expenses", expenses_path(@param) %>
 </div>

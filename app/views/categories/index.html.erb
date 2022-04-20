@@ -1,14 +1,12 @@
 <p style="color: green"><%= notice %></p>
 
-  <h1>Categories</h1>
+  <h1 class="m-11 text-lg">CATEGORIES</h1>
 
   <div id="categories">
     <% @categories.each do |category| %>
       <%= render category %>
-      <p>
-        <%= link_to "Show this category", category %>
-      </p>
     <% end %>
   </div>
 
-  <%= link_to "New category", new_category_path %>
+  <%= link_to "New category", new_category_path, class:"text-white text-center mt-10 bg-[#5fb523] w-full py-2 rounded-sm mb-5 hover:bg-[#3778c2]" %>
+

@@ -6,22 +6,27 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Lobster&family=Nunito+Sans:wght@200;300;700&display=swap');
+    </style>
+
     <script src="https://cdn.tailwindcss.com"></script>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
+  <body class="<%= current_page?(new_user_session_path) || current_page?(new_user_registration_path) ? 'bg-[#3778c2]' : 'bg-[#eeeeee]'%>">
+
+  <%= render "partials/nav_bar" %>
+
   <% if notice %>
-  <p class="alert alert-success"><%= notice %></p>
+  <p class="alert alert-success text-white"><%= notice %></p>
 <% end %>
 <% if alert %>
   <p class="alert alert-danger"><%= alert %></p>
 <% end %>
-<% if user_signed_in? %>
-  <h3>Logged in as: <%=current_user.name%> </h3>
-  <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
-<% end %>
+<main class="px-[10%] flex flex-col items-center">
     <%= yield %>
+</main>
   </body>
 </html>

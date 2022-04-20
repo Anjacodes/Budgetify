@@ -15,6 +15,7 @@ class ExpensesController < ApplicationController
   # GET /expenses/new
   def new
     @expense = Expense.new
+    @param = params["format"]
   end
 
   # GET /expenses/1/edit

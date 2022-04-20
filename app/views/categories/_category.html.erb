@@ -1,19 +1,16 @@
 <%= link_to expenses_path(category.id) do %>
-<div id="<%= dom_id category %>">
-  <p>
-    <strong>Name:</strong>
-    <%= category.name %>
-  </p>
-
-  <p>
-    <img class="w-1/6" src="<%= category.icon %>">
-  </p>
-
-  <p>
+<div id="<%= dom_id category %>", class="bg-white px-5 py-3 flex items-center mb-5 hover:bg-[#3778c2] hover:text-white">
+    <img class="w-1/4" src="<%= category.icon %>">
+  <div class="flex flex-col">
+    <p class="text-lg ml-4"><%= category.name %></p>
+    <p class="text-sm ml-4">
     <strong>Total Expenses:</strong>
     $<%= category.expenses.reduce(0) {|sum, num| sum + num.amount} %>
-  </p>
-
+    </p>
+  </div>
 </div>
+<p class="hidden">
+<%= link_to "Show this category", category %>
+</p>
 <% end %>
 
