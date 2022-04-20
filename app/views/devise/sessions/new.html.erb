@@ -1,12 +1,13 @@
 <h1 class="text-3xl mt-[50vw] mb-5 text-white font-['Lobster']">Budgetify</h1>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: "w-full"}) do |f| %>
+<%= form_for(resource, as: resource_name, url: session_path(resource_name), data: {turbo: false}, html: {class: "w-full"}) do |f| %>
+
   <div class="field">
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "w-full py-1 pl-1 rounded-sm mb-5", placeholder: 'Email' %>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "w-full py-1 pl-1 rounded-sm mb-5", placeholder: 'Email', required: true %>
   </div>
 
   <div class="field">
-    <%= f.password_field :password, autocomplete: "current-password", class: "w-full py-1 pl-1 rounded-sm mb-2", placeholder: 'Password' %>
+    <%= f.password_field :password, autocomplete: "current-password", class: "w-full py-1 pl-1 rounded-sm mb-2", placeholder: 'Password', required: true %>
   </div>
 
   <% if devise_mapping.rememberable? %>

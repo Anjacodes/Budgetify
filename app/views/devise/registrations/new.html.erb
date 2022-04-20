@@ -1,6 +1,6 @@
 <h2 class="text-3xl mt-[50vw] mb-5 text-white font-['Lobster']">Sign up</h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: "w-full"}) do |f| %>
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), data: {turbo: false}, html: {class: "w-full"}) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="field">
