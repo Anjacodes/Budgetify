@@ -4,6 +4,11 @@ class CategoriesController < ApplicationController
   # GET /categories or /categories.json
   def index
     @categories = Category.all
+    @category_expenses = []
+
+    @categories.each do |category|
+      @category_expenses << category.expense_categories
+    end
   end
 
   # GET /categories/1 or /categories/1.json
