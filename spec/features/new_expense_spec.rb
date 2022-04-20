@@ -14,7 +14,7 @@ RSpec.describe 'The new expense page', type: :feature do
       fill_in 'Password', with: '123456'
       click_on 'Log in'
 
-      @path = "/expenses/new.#{@category1.id}"
+      @path = "/categories/#{@category1.id}/expenses/new"
     end
 
     it 'shows all the different categories to choose from' do
@@ -25,7 +25,7 @@ RSpec.describe 'The new expense page', type: :feature do
 
     it 'shows an error when submit button is clicked and no name and amount have been entered' do
       visit @path
-      click_on 'Create Expense'
+      click_on 'Save Expense'
       expect(page).to have_content "Name can't be blank"
       expect(page).to have_content "Amount can't be blank"
     end
@@ -34,15 +34,15 @@ RSpec.describe 'The new expense page', type: :feature do
       visit @path
       fill_in 'Name', with: 'Test Expense'
       fill_in 'Amount', with: '10'
-      click_on 'Create Expense'
+      click_on 'Save Expense'
       expect(page).to have_content 'Expense was successfully created'
-      expect(current_path).to eql '/expenses'
+      expect(current_path).to eql "/categories/#{@category1.id}/expenses"
     end
 
     it 'takes you back to category expenses page when clicking on back to expenses' do
       visit @path
       click_on 'Back to expenses'
-      expect(current_path).to eql "/expenses.#{@category1.id}"
+      expect(current_path).to eql "/categories/#{@category1.id}/expenses"
     end
   end
 end
