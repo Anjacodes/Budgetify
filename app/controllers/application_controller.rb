@@ -13,5 +13,4 @@ class ApplicationController < ActionController::Base
     #            :password_confirmation, :bio, :photo)
     # end
   end
-
 end

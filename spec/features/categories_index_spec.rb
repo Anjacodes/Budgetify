@@ -5,9 +5,9 @@ RSpec.describe 'The categories index page', type: :feature do
     before :each do
       @user1 = User.create!(name: 'Test User', email: 'test@testmail.com', password: '123456')
 
-      @category1 = Category.create!(name: 'Test Category 1', icon: "wwww.testicon.com", user_id: @user1.id)
+      @category1 = Category.create!(name: 'Test Category 1', icon: 'wwww.testicon.com', user_id: @user1.id)
 
-      @category2 = Category.create!(name: 'Test Category 2', icon: "wwww.testicon.com", user_id: @user1.id)
+      @category2 = Category.create!(name: 'Test Category 2', icon: 'wwww.testicon.com', user_id: @user1.id)
 
       @expense1 = @category1.expenses.create(name: 'Test Expense', amount: 10, user_id: @user1.id)
 

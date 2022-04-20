@@ -10,7 +10,7 @@ RSpec.describe 'The new category page', type: :feature do
       fill_in 'Password', with: '123456'
       click_on 'Log in'
 
-      @path = "/categories/new"
+      @path = '/categories/new'
     end
 
     it 'has a form that allows to add new categories' do
@@ -31,13 +31,13 @@ RSpec.describe 'The new category page', type: :feature do
       fill_in 'Icon', with: 'www.testicon.com'
       click_on 'Create Category'
       expect(page).to have_content 'Category was successfully created'
-      expect(current_path).to eql "/"
+      expect(current_path).to eql '/'
     end
 
     it 'takes you back to home page when clicking on back to categories' do
       visit @path
-      find(:xpath, "/html/body/header/a").click
-      expect(current_path).to eql "/"
+      find(:xpath, '/html/body/header/a').click
+      expect(current_path).to eql '/'
     end
   end
 end

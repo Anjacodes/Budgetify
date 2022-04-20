@@ -5,9 +5,9 @@ RSpec.describe 'The new expense page', type: :feature do
     before :each do
       @user1 = User.create!(name: 'Test User', email: 'test@testmail.com', password: '123456')
 
-      @category1 = Category.create!(name: 'Test Category 1', icon: "wwww.testicon.com", user_id: @user1.id)
+      @category1 = Category.create!(name: 'Test Category 1', icon: 'wwww.testicon.com', user_id: @user1.id)
 
-      @category2 = Category.create!(name: 'Test Category 2', icon: "wwww.testicon.com", user_id: @user1.id)
+      @category2 = Category.create!(name: 'Test Category 2', icon: 'wwww.testicon.com', user_id: @user1.id)
 
       visit 'users/sign_in'
       fill_in 'Email', with: 'test@testmail.com'
@@ -36,7 +36,7 @@ RSpec.describe 'The new expense page', type: :feature do
       fill_in 'Amount', with: '10'
       click_on 'Create Expense'
       expect(page).to have_content 'Expense was successfully created'
-      expect(current_path).to eql "/expenses"
+      expect(current_path).to eql '/expenses'
     end
 
     it 'takes you back to category expenses page when clicking on back to expenses' do

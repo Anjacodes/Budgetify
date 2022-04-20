@@ -5,7 +5,7 @@ RSpec.describe 'The expenses index page', type: :feature do
     before :each do
       @user1 = User.create!(name: 'Test User', email: 'test@testmail.com', password: '123456')
 
-      @category1 = Category.create!(name: 'Test Category 1', icon: "wwww.testicon.com", user_id: @user1.id)
+      @category1 = Category.create!(name: 'Test Category 1', icon: 'wwww.testicon.com', user_id: @user1.id)
 
       @expense1 = @category1.expenses.create(name: 'Test Expense', amount: 10, user_id: @user1.id)
 
@@ -37,8 +37,8 @@ RSpec.describe 'The expenses index page', type: :feature do
 
     it 'takes you back to home when clicking on Back button' do
       visit @path
-      find(:xpath, "/html/body/header/a").click
-      expect(current_path).to eql "/"
+      find(:xpath, '/html/body/header/a').click
+      expect(current_path).to eql '/'
     end
 
     it 'takes you to a page to create an expense when clicking on new expense button' do

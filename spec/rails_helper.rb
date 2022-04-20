@@ -1,13 +1,13 @@
 ENV['RAILS_ENV'] ||= 'test'
 require_relative '../config/environment'
-abort("The Rails environment is running in production mode!") if Rails.env.production?
+abort('The Rails environment is running in production mode!') if Rails.env.production?
 require 'spec_helper'
 require 'rspec/rails'
-require "capybara/rspec"
+require 'capybara/rspec'
 
 # Add additional requires below this line. Rails is not loaded until this point!
 
-Dir[Rails.root.join('spec', 'support', '**', '*.rb')].sort.each { |f| require f }
+Dir[Rails.root.join('spec', 'support', '**', '*.rb')].each { |f| require f }
 
 begin
   ActiveRecord::Migration.maintain_test_schema!
@@ -34,12 +34,12 @@ RSpec.configure do |config|
   end
 
   # This block must be here, do not combine with the other `before(:each)` block.
-# This makes it so Capybara can see the database.
-config.before(:each) do
-  DatabaseCleaner.start
-end
+  # This makes it so Capybara can see the database.
+  config.before(:each) do
+    DatabaseCleaner.start
+  end
 
-config.after(:each) do
-  DatabaseCleaner.clean
-end
+  config.after(:each) do
+    DatabaseCleaner.clean
+  end
 end
