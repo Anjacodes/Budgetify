@@ -1,0 +1,27 @@
+<h2 class="text-3xl mt-[50vw] mb-5 text-white font-['Lobster']">Sign up</h2>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), data: {turbo: false}, html: {class: "w-full"}) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+  <div class="field">
+    <%= f.text_field :name, class: "w-full py-1 pl-1 rounded-sm mb-5", placeholder: 'Name'%>
+  </div>
+
+  <div class="field">
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "w-full py-1 pl-1 rounded-sm mb-5", placeholder: 'Email' %>
+  </div>
+
+  <div class="field">
+    <%= f.password_field :password, autocomplete: "new-password", class: "w-full py-1 pl-1 rounded-sm mb-5", placeholder: 'Password (6 characters minimum)' %>
+  </div>
+
+  <div class="field">
+    <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "w-full py-1 pl-1 rounded-sm mb-10", placeholder: 'Password confirmation' %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Sign up", class:"bg-white w-full py-1 rounded-sm mb-5 hover:bg-[#5fb523]" %>
+  </div>
+<% end %>
+
+<%= render "devise/shared/links" %>

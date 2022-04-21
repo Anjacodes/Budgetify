@@ -1,0 +1,11 @@
+<p style="color: green"><%= notice %></p>
+
+<div class="w-full mt-11 mb-5">
+<% @expenses.each do |expense| %>
+<%= render expense %>
+<% end %>
+
+  <%= link_to "Edit this expense", edit_category_expense_path(category_id: params[:category_id], expense_id: params[:id]), class:"hover:text-[#5fb523]" %>
+
+  <%= button_to "Destroy this expense", category_expense_path(category_id: params[:category_id], expense_id: params[:id]), method: :delete, class:"text-white text-center mt-10 bg-[#5fb523] w-full py-2 rounded-sm hover:bg-[#3778c2]"%>
+</div>

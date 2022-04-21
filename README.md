@@ -2,10 +2,19 @@
 
 This mobile app allows the user to manage their personal finances by keeping track of their expenses.
 
+<img src="app/assets/images/Splash_screen.png">
+<img src="app/assets/images/home_screen.png">
+
 <br>
 
 ## 🪛 Built with
 Ruby on Rails
+
+<br>
+
+## 🚀 Live Demo
+
+You can see the live demo of this mobile app [here](https://boiling-falls-90821.herokuapp.com/users/sign_in).
 
 <br>
 
@@ -105,12 +114,14 @@ Feel free to check the [issues page](../../issues/).
 
 Give a ⭐️ if you like this project!
 
+<br>
+
 ## Acknowledgments
 
-- Hat tip to anyone whose code was used
-- Inspiration
-- etc
+Original design idea by [Gregoire Vella on Behance](https://www.behance.net/gregoirevella).
+
+<br>
 
 ## 📝 License
 
-This project is [MIT](./MIT.md) licensed.
+This project is [MIT](https://github.com/microverseinc/readme-template/blob/master/MIT.md) licensed.

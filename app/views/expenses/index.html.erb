@@ -1,0 +1,13 @@
+<h2 class="mb-11 mt-11 text-lg self-start"><strong>TOTAL EXPENSES:</strong> $<%=@total%> </h2>
+
+<% if @expenses.empty? %>
+  <h3>There aren't any expenses here yet</h3>
+<% else %>
+  <div id="expenses" class="w-full">
+    <% @expenses.each do |expense| %>
+      <%= render expense %>
+    <% end %>
+  </div>
+<% end %>
+
+<%= link_to "New expense", new_category_expense_path, class:"text-white text-center mt-10 bg-[#5fb523] w-full py-2 rounded-sm mb-5 hover:bg-[#3778c2]"%>

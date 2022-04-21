@@ -1,0 +1,9 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @user %>
+
+<div class="w-full">
+  <%= link_to "Edit this user", edit_user_path(@user) %>
+
+  <%= button_to "Destroy this user", @user, method: :delete, class:"text-white text-center mt-10 bg-[#5fb523] w-full py-2 rounded-sm hover:bg-[#3778c2]" %>
+</div>

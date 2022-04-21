@@ -1,0 +1,38 @@
+<%= form_with url: category_expenses_path(params[:category_id]), scope: :expense,  class:"w-full" do |form| %>
+  <% if expense.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(expense.errors.count, "error") %> prohibited this expense from being saved:</h2>
+
+      <ul>
+        <% expense.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.text_field :name, class: "w-full py-1 pl-1 rounded-sm mb-5", placeholder: 'Name' %>
+  </div>
+
+  <div>
+    <%= form.text_field :amount, class: "w-full py-1 pl-1 rounded-sm mb-5", placeholder: 'Amount' %>
+  </div>
+
+  <div class="w-full hidden">
+  <%= form.label :categories, style: "display: block" %>
+  <% for category in Category.all %>
+    <%= check_box_tag "expense[category_ids][]", category.id, expense.categories.include?(category)%>
+    <%=h category.name%>
+  <% end %>
+  </div>
+
+  <div class="invisible">
+    <%= form.label :user_id, style: "display: block" %>
+    <%= form.text_field :user_id, value: current_user.id %>
+  </div>
+
+  <div class="text-white text-center mt-10 bg-[#5fb523] w-full py-2 rounded-sm hover:bg-[#3778c2]">
+    <%= form.submit %>
+  </div>
+<% end %>

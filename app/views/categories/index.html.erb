@@ -1,0 +1,8 @@
+  <div id="categories", class="mt-11 ">
+    <% @categories.each do |category| %>
+      <%= render category %>
+    <% end %>
+  </div>
+
+  <%= link_to "New category", new_category_path, class:"text-white text-center mt-10 bg-[#5fb523] w-full py-2 rounded-sm mb-5 hover:bg-[#3778c2]" %>
+
