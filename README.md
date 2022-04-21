@@ -124,4 +124,4 @@ Original design idea by [Gregoire Vella on Behance](https://www.behance.net/greg
 
 ## 📝 License
 
-This project is [MIT](./MIT.md) licensed.
+This project is [MIT](https://github.com/microverseinc/readme-template/blob/master/MIT.md) licensed.

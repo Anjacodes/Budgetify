@@ -8,8 +8,8 @@ class Ability
     if user.admin?
       can :manage, :all
     else
-      can :manage, Expense, user_id: user.id
-      can :manage, Category, user_id:
+      can :manage, Expense, user_id: current_user.id
+      can :manage, Category, user_id: current_user.id
     end
     #
     # The first argument to `can` is the action you are giving the user
