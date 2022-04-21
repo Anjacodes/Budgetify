@@ -16,7 +16,7 @@ RSpec.describe 'The expenses index page', type: :feature do
       fill_in 'Password', with: '123456'
       click_on 'Log in'
 
-      @path = "/expenses.#{@category1.id}"
+      @path = "/categories/#{@category1.id}/expenses"
     end
 
     it 'displays a list of all transactions for a certain category' do
@@ -27,7 +27,7 @@ RSpec.describe 'The expenses index page', type: :feature do
 
     it 'displays the total of all expenses for this category' do
       visit @path
-      expect(page).to have_content 'Total Expenses: $20.0'
+      expect(page).to have_content 'TOTAL EXPENSES: $20.0'
     end
 
     it 'has a button to create a new expense' do
@@ -44,7 +44,7 @@ RSpec.describe 'The expenses index page', type: :feature do
     it 'takes you to a page to create an expense when clicking on new expense button' do
       visit @path
       click_on 'New expense'
-      expect(current_path).to eql "/expenses/new.#{@category1.id}"
+      expect(current_path).to eql "/categories/#{@category1.id}/expenses/new"
     end
   end
 end

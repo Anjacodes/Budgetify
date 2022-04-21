@@ -39,7 +39,7 @@ RSpec.describe 'The categories index page', type: :feature do
     it 'takes you to all transactions for current category when clicking on a category item' do
       visit '/'
       click_on 'Test Category 2'
-      expect(current_path).to eql "/expenses.#{@category2.id}"
+      expect(current_path).to eql "/categories/#{@category2.id}/expenses"
     end
   end
 end
